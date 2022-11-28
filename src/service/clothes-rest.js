@@ -1,4 +1,4 @@
-baseUrl = 'http://localhost:4000/users'
+baseUrl = 'http://localhost:4080/clothes'
 
 export const getAllClothes = async() => {
     try{
@@ -7,37 +7,52 @@ export const getAllClothes = async() => {
     }catch(e){console.log(e)}
 };
 
-export const getAClotheById = async() => {
+export const getAClothingById = async(id) => {
     try{
-        return await fetch(baseUrl)
+        return await fetch(`${baseUrl}/${id}`)
         .then(res => res)
     }catch(e){console.log(e)}
 };
 
-export const getAClotheByParam = async() => {
+export const getAClothingByParam = async(param) => {
     try{
-        return await fetch(baseUrl)
+        return await fetch(`${baseUrl}/${param}`)
         .then(res => res)
     }catch(e){console.log(e)}
 };
 
-export const addAClothe = async() => {
+export const addAClothing = async(clothingItem) => {
+    const Options = {
+        method:'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(clothingItem)
+    }
     try{
-        return await fetch(baseUrl)
+        return await fetch(baseUrl, Options)
         .then(res => res)
     }catch(e){console.log(e)}
 };
 
-export const updateAClothe = async() => {
+export const updateAClothing = async(clothingItem) => {
+    const Options = {
+        method:'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(clothingItem)
+    }
     try{
-        return await fetch(baseUrl)
+        return await fetch(baseUrl, Options)
         .then(res => res)
     }catch(e){console.log(e)}
 };
 
-export const deleteAClothe = async() => {
+export const deleteAClothing = async(clothingItem) => {
+    const Options = {
+        method:'DELETE',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(clothingItem)
+    }
     try{
-        return await fetch(baseUrl)
+        return await fetch(baseUrl, Options)
         .then(res => res)
     }catch(e){console.log(e)}
 };
